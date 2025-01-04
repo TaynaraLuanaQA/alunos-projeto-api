@@ -12,6 +12,16 @@ describe('Suíte de testes de cadastro de produtos (FLUXO SUCESSO)', ()=>{
           const resposta = await request(urlApi).post('/products').send(payloadProdutos);
           expect(resposta.statusCode).toBe(201);
     })
+
+    it('CE02: Validação de cadastro de produto - Deve validar a presença do campo ID.', async()=>{
+        const resposta = await request(urlApi).post('/products').send(payloadProdutos);
+        expect(resposta.statusCode).toBe(201);
+        expect(resposta.body).toHaveProperty('id');
+        expect(resposta.body.name).toBe(payloadProdutos.name);
+        expect(resposta.body.price).toBe(payloadProdutos.price);
+
+        console.log('O retorno do payload do cadastro de produto retornou corretamente os valores passados:', resposta.body);
+  })
 })
 
 describe('Suíte de testes de cadastro de produtos (FLUXO ERRO)', ()=>{
