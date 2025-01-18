@@ -1,5 +1,5 @@
 const request = require('supertest');
-const urlApi = "http://localhost:3000";
+const urlApi = process.env.URL_BASE;
 
 describe('Suite de testes de api - para validar consulta de produtos. (FLUXO SUCESSO)', ()=>{
     it('CE01: Consultando todos os produtos cadastrados com sucesso. É esperado retornar 200', async()=>{

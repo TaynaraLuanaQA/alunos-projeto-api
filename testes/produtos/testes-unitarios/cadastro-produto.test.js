@@ -1,5 +1,5 @@
 const request = require('supertest');
-const urlApi = "http://localhost:3000";
+const urlApi = process.env.URL_BASE;
 
 describe('Suíte de testes de cadastro de produtos (FLUXO SUCESSO)', ()=>{
 
